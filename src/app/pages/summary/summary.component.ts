@@ -27,7 +27,6 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.exampleService.get().subscribe(books => {
-      console.log('books', books);
       let finalBooks: IFinalBooks[] = [];
 
       books.data.map((book: IData) => {
@@ -40,8 +39,6 @@ export class SummaryComponent implements OnInit {
           updatedAt: new Date(book.attributes.updated_at),
         });
       });
-
-      console.log('final books', finalBooks);
 
       this.booksData = new MatTableDataSource(finalBooks);
 
